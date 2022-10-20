@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+      target: ${APP_BUILD_TARGET:-local}
+    volumes:
+      - type: bind
+        source: ./src
+        target: /var/www/html
+    depends_on:
+      db:
+        condition: service_started
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+      target: ${APP_BUILD_TARGET:-local}
+    volumes:
+      - type: bind
+        source: ./src/public
+        target: /var/www/html/public
+    ports:
+      - "8000:80"
+    depends_on:
+      - app
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    volumes:
+      - db:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=laravel
+volumes:
+  db:

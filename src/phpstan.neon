@@ -1,0 +1,14 @@
+parameters:
+    level: 1
+    paths:
+        - app
+        - bootstrap
+        - config
+        - database
+        - main
+        - tests
+    excludePaths:
+        - routes
+        - app/Http/Resources
+    bootstrapFiles:
+        - _ide_helper.php

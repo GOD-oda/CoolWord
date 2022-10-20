@@ -1,0 +1,44 @@
+@mixin pc {
+  @media screen and (min-width: (992px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: (762px)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (min-width: (576px)) {
+    @content;
+  }
+}
+
+body.cool_word {
+  header {
+    padding: 0 1rem;
+    border-bottom: solid .5px #d2d3d7;
+  }
+
+  main {
+    .index {
+      .card-box {
+        padding: 1rem;
+        border-bottom: 1px solid #d2d3d7;
+        @include sp {
+          border-bottom: none;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+      .pagination {
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+

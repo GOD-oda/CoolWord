@@ -1,0 +1,15 @@
+name: Phpunit
+on:
+  push:
+    branches:
+      - '**'
+jobs:
+  phpunit:
+    name: phpunit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Init
+        run: make setup
+      - name: Run phpunit
+        run: make test

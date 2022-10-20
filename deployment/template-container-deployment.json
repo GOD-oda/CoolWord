@@ -1,0 +1,36 @@
+{
+  "containers": {
+    "app": {
+      "image": "<APP_IMAGE>",
+      "environment": {
+        "APP_NAME": "CoolWord",
+        "APP_ENV": "production",
+        "APP_KEY": "<APP_KEY>",
+        "DB_CONNECTION": "<DB_CONNECTION>",
+        "DB_DATABASE": "<DB_DATABASE>",
+        "DB_HOST": "<DB_HOST>",
+        "DB_PASSWORD": "<DB_PASSWORD>",
+        "DB_USERNAME": "<DB_USERNAME>",
+        "SLACK_WEB_HOOK_URL": "<SLACK_WEB_HOOK_URL>"
+      }
+    },
+    "web": {
+      "image": "<WEB_IMAGE>",
+      "ports": {
+        "80": "HTTP"
+      }
+    }
+  },
+  "publicEndpoint": {
+    "containerName": "web",
+    "containerPort": 80,
+    "healthCheck": {
+      "healthyThreshold": 2,
+      "unhealthyThreshold": 2,
+      "timeoutSeconds": 2,
+      "intervalSeconds": 5,
+      "path": "/api/healthcheck",
+      "successCodes": "200-499"
+    }
+  }
+}
