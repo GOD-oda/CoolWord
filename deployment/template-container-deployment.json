@@ -9,10 +9,12 @@
         "DB_CONNECTION": "<DB_CONNECTION>",
         "DB_DATABASE": "<DB_DATABASE>",
         "DB_HOST": "<DB_HOST>",
+        "DB_PORT": "<DB_PORT>",
         "DB_PASSWORD": "<DB_PASSWORD>",
         "DB_USERNAME": "<DB_USERNAME>",
         "SLACK_WEB_HOOK_URL": "<SLACK_WEB_HOOK_URL>"
-      }
+      },
+      "command": ["php", "artisan", "migrate", "--force"]
     },
     "web": {
       "image": "<WEB_IMAGE>",
