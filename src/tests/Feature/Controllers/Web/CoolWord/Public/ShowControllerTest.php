@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Controllers\Web\CoolWord\Public;
 
 use App\Models\CoolWord;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -13,6 +14,8 @@ use Tests\TestCase;
 
 class ShowControllerTest extends TestCase
 {
+    use DatabaseMigrations;
+
     private CoolWordRepository $repository;
 
     protected function setUp(): void
