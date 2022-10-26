@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Main\Domain\CoolWord;
 
 use App\Models\CoolWord as EloquentCoolWord;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Main\Domain\CoolWord\CoolWord;
 use Main\Domain\CoolWord\CoolWordCollection;
 use Main\Domain\CoolWord\CoolWordId;
@@ -19,6 +20,8 @@ use Tests\TestCase;
 
 class CoolWordRepositoryTest extends TestCase
 {
+    use DatabaseMigrations;
+
     private CoolWordRepository $coolWordRepository;
     private TagRepository $tagRepository;
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Main\Domain\CoolWord;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Main\Domain\CoolWord\CoolWord;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
@@ -14,6 +15,8 @@ use Tests\TestCase;
 
 class CoolWordServiceTest extends TestCase
 {
+    use DatabaseMigrations;
+
     private CoolWordRepository $repository;
     private CoolWordService $service;
 

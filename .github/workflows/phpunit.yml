@@ -12,4 +12,4 @@ jobs:
       - name: Init
         run: make setup
       - name: Run phpunit
-        run: make test
+        run: make phpunit

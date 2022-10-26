@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace Tests\Feature\Controllers\Web\CoolWord\Admin;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CreateControllerTest extends TestCase
 {
+    use DatabaseMigrations;
+
     private User $user;
     private CoolWordRepository $coolWordRepository;
 
