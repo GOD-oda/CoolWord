@@ -14,9 +14,9 @@ final class EloquentTag implements TagRepository
     public function store(Tag $tag): TagId
     {
         if ($tag->hasId()) {
-            $eloquentTag = \App\Models\CoolWord\Tag::findOrFail($tag->id()->value);
+            $eloquentTag = \App\Models\Tag::findOrFail($tag->id()->value);
         } else {
-            $eloquentTag =  new \App\Models\CoolWord\Tag();
+            $eloquentTag =  new \App\Models\Tag();
         }
 
         $eloquentTag->name = $tag->name();
@@ -27,7 +27,7 @@ final class EloquentTag implements TagRepository
 
     public function findByIds(array $ids): TagCollection
     {
-        $tags = \App\Models\CoolWord\Tag::find($ids)->map(function ($tag) {
+        $tags = \App\Models\Tag::find($ids)->map(function ($tag) {
             return new Tag(
                 id: new TagId($tag->id),
                 name: $tag->name

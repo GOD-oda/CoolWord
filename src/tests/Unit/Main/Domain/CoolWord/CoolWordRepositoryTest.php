@@ -14,7 +14,7 @@ use Main\Domain\CoolWord\Tag;
 use Main\Domain\CoolWord\TagCollection;
 use Main\Domain\CoolWord\TagId;
 use Main\Domain\CoolWord\TagRepository;
-use Database\Factories\CoolWord\CoolWordFactory;
+use Database\Factories\CoolWordFactory;
 use Tests\TestCase;
 
 class CoolWordRepositoryTest extends TestCase
@@ -87,7 +87,7 @@ class CoolWordRepositoryTest extends TestCase
             name: new Name('foo'),
             description: 'description'
         );
-        $tag = \App\Models\CoolWord\Tag::factory()->create();
+        $tag = \App\Models\Tag::factory()->create();
         $coolWord->addTag(new Tag(
             id: new TagId($tag->id),
             name: $tag->name
@@ -106,8 +106,8 @@ class CoolWordRepositoryTest extends TestCase
 
     public function testStoreSaved(): void
     {
-        $coolWord = \App\Models\CoolWord\CoolWord::factory()
-            ->has(\App\Models\CoolWord\Tag::factory([
+        $coolWord = \App\Models\CoolWord::factory()
+            ->has(\App\Models\Tag::factory([
                 'name' => 'before'
             ]))
             ->create([
@@ -116,7 +116,7 @@ class CoolWordRepositoryTest extends TestCase
             ]);
         $coolWordBeforeSave = $this->coolWordRepository->findById(new CoolWordId($coolWord->id));
 
-        $tag = \App\Models\CoolWord\Tag::factory()->create([
+        $tag = \App\Models\Tag::factory()->create([
             'name' => 'after'
         ]);
         $tags = new TagCollection(...[

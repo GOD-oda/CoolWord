@@ -4,25 +4,21 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Controllers\Web\CoolWord\Public;
 
-use App\Models\CoolWord\CoolWord;
-use CoolWord\Domain\CoolWord\CoolWordId;
-use CoolWord\Domain\CoolWord\CoolWordRepository;
+use App\Models\CoolWord;
+use Main\Domain\CoolWord\CoolWordId;
+use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\DatabaseRefreshable;
 use Tests\TestCase;
 
 class ShowControllerTest extends TestCase
 {
-    use DatabaseRefreshable;
-
     private CoolWordRepository $repository;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->refreshDatabase();
         $this->repository = $this->app->make(CoolWordRepository::class);
     }
 

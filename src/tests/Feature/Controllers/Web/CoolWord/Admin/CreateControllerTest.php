@@ -5,23 +5,18 @@ declare(strict_types=1);
 namespace Tests\Feature\Controllers\Web\CoolWord\Admin;
 
 use App\Models\User;
-use CoolWord\Domain\CoolWord\CoolWordRepository;
+use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\DatabaseRefreshable;
 use Tests\TestCase;
 
 class CreateControllerTest extends TestCase
 {
-    use DatabaseRefreshable;
-
     private User $user;
     private CoolWordRepository $coolWordRepository;
 
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->refreshDatabase();
 
         $this->user = User::factory()->create();
         $this->coolWordRepository = $this->app->make(CoolWordRepository::class);
