@@ -15,8 +15,8 @@ jobs:
       - uses: Songmu/tagpr@v1
         id: run-tagpr
   deploy:
-     needs: tagpr
-     if: needs.tagpr.outputs.tagpr-tag != ''
+    needs: tagpr
+    if: needs.tagpr.outputs.tagpr-tag != ''
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
