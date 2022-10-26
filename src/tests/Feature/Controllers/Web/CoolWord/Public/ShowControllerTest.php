@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Controllers\Web\CoolWord\Public;
 
-use App\Models\CoolWord\CoolWord;
-use CoolWord\Domain\CoolWord\CoolWordId;
-use CoolWord\Domain\CoolWord\CoolWordRepository;
+use App\Models\CoolWord;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Main\Domain\CoolWord\CoolWordId;
+use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\DatabaseRefreshable;
 use Tests\TestCase;
 
 class ShowControllerTest extends TestCase
 {
-    use DatabaseRefreshable;
+    use DatabaseMigrations;
 
     private CoolWordRepository $repository;
 
@@ -22,7 +22,6 @@ class ShowControllerTest extends TestCase
     {
         parent::setUp();
 
-        $this->refreshDatabase();
         $this->repository = $this->app->make(CoolWordRepository::class);
     }
 

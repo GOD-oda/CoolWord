@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Main\Infra\CoolWord;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Main\Domain\CoolWord\Tag;
 use Main\Domain\CoolWord\TagCollection;
 use Main\Domain\CoolWord\TagId;
@@ -14,6 +15,8 @@ use Tests\TestCase;
 
 class EloquentTagTest extends TestCase
 {
+    use DatabaseMigrations;
+
     private TagRepository $repository;
 
     protected function setUp(): void
@@ -31,7 +34,7 @@ class EloquentTagTest extends TestCase
         $tagId = $this->repository->store($tag);
 
         $this->assertInstanceOf(TagId::class, $tagId);
-        $this->assertSame(1, \App\Models\CoolWord\Tag::count());
+        $this->assertSame(1, \App\Models\Tag::count());
     }
 
     public function testFindByIds()
