@@ -56,6 +56,7 @@ jobs:
               -e "s/<DB_CONNECTION>/${{ secrets.DB_CONNECTION }}/" \
               -e "s/<DB_DATABASE>/${{ secrets.DB_DATABASE }}/" \
               -e "s/<DB_HOST>/${{ secrets.DB_HOST }}/" \
+              -e "s/<DB_PORT>/${{ secrets.DB_PORT }}/" \
               -e "s/<DB_PASSWORD>/${{ secrets.DB_PASSWORD }}/" \
               -e "s/<DB_USERNAME>/${{ secrets.DB_USERNAME }}/" \
               -e "s@<SLACK_WEB_HOOK_URL>@${{ secrets.SLACK_WEB_HOOK_URL }}@" \
