@@ -31,7 +31,7 @@ class EloquentTagTest extends TestCase
         $tagId = $this->repository->store($tag);
 
         $this->assertInstanceOf(TagId::class, $tagId);
-        $this->assertSame(1, \App\Models\CoolWord\Tag::count());
+        $this->assertSame(1, \App\Models\Tag::count());
     }
 
     public function testFindByIds()

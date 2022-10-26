@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * App\Models\CoolWord\CoolWord
  *
- * @method static \Database\Factories\CoolWord\CoolWordFactory factory(...$parameters)
+ * @method static \Database\Factories\CoolWordFactory factory(...$parameters)
  * @method static Builder|CoolWord newModelQuery()
  * @method static Builder|CoolWord newQuery()
  * @method static Builder|CoolWord query()
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $views
  * @property string $description
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\CoolWord\Tag[] $tags
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  * @property-read int|null $tags_count
  * @method static Builder|CoolWord name(string $name)
  * @method static Builder|CoolWord whereCreatedAt($value)
