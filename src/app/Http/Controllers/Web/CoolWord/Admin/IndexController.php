@@ -47,7 +47,7 @@ class IndexController extends Controller
             perPage: static::PER_PAGE,
             currentPage: $currentPage,
             options: [
-                'path' => route('cool_word.admin.cool_words.index')
+                'path' => route('admin.cool_words.index')
             ]
         );
         $paginator->withQueryString();

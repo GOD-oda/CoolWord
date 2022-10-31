@@ -20,7 +20,7 @@
       </div>
     @endif
 
-    <form action="{{ route('cool_word.admin.cool_words.create') }}" method="post">
+    <form action="{{ route('admin.cool_words.create') }}" method="post">
       @csrf
 
       <div class="mb-3">

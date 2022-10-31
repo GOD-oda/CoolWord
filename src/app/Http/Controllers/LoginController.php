@@ -34,7 +34,7 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->route('cool_word.admin.cool_words.index');
+            return redirect()->route('admin.cool_words.index');
         }
 
         throw ValidationException::withMessages([
@@ -50,6 +50,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('auth.login.login');
+        return redirect()->route('auth.login-show');
     }
 }

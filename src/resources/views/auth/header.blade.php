@@ -3,11 +3,11 @@
     @if (Auth::check())
       <div class="row justify-content-end">
         <div class="col-4">
-          <a href="{{ route('cool_word.admin.cool_words.new') }}" class="btn btn-primary">新規作成</a>
+          <a href="{{ route('admin.cool_words.new') }}" class="btn btn-primary">新規作成</a>
         </div>
 
         <div class="col-4">
-          <form action="{{ route('auth.login.logout') }}" method="POST">
+          <form action="{{ route('auth.logout') }}" method="POST">
             @csrf
 
             <button type="submit" class="btn btn-primary">Log out</button>

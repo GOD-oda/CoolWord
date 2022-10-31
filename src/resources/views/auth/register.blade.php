@@ -2,7 +2,7 @@
 
 @section('main')
   <div class="container py-3">
-    <form method="POST" action="{{ route('auth.register.register') }}">
+    <form method="POST" action="{{ route('auth.register') }}">
       @csrf
 
       <div class="row mb-3">
