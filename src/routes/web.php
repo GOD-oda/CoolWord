@@ -24,6 +24,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::get('/{id}', \App\Http\Controllers\Web\CoolWord\Admin\EditController::class)->name('show');
         Route::put('/{id}', \App\Http\Controllers\Web\CoolWord\Admin\UpdateController::class)->name('update');
     });
+
+    Route::prefix('tags')->name('tags.')->group(function () {
+        Route::get('/new', \App\Http\Controllers\Web\Tag\Admin\NewController::class)->name('new');
+        Route::post('/create', \App\Http\Controllers\Web\Tag\Admin\CreateController::class)->name('create');
+        Route::get('/{id}', \App\Http\Controllers\Web\Tag\Admin\EditController::class)->name('show');
+    });
 });
 
 Route::prefix('auth')->name('auth.')->group(function () {
