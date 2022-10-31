@@ -20,7 +20,7 @@
       </div>
     @endif
 
-    <form action="{{ route('cool_word.admin.cool_words.update', ['id' => $id]) }}" method="post">
+    <form action="{{ route('admin.cool_words.update', ['id' => $id]) }}" method="post">
       @method('put')
       @csrf
 

@@ -43,7 +43,7 @@ class CreateController extends Controller
         $coolWordId = $this->coolWordRepository->store($coolWord);
         $newCoolWord = $this->coolWordRepository->findById($coolWordId);
 
-        return redirect()->route('cool_word.admin.cool_words.show', ['id' => $newCoolWord->id()->value])
+        return redirect()->route('admin.cool_words.show', ['id' => $newCoolWord->id()->value])
             ->with('success_msg', '作成成功');
     }
 }

@@ -31,11 +31,11 @@ class CreateControllerTest extends TestCase
     public function testSuccessCreate(array $params): void
     {
         $response = $this->actingAs($this->user)
-            ->from(route('cool_word.admin.cool_words.show', ['id' => $this->user->id]))
-            ->post(route('cool_word.admin.cool_words.create'), $params);
+            ->from(route('admin.cool_words.new', ['id' => $this->user->id]))
+            ->post(route('admin.cool_words.create'), $params);
 
         $response->assertStatus(302)
-            ->assertRedirect(route('cool_word.admin.cool_words.show', ['id' => $this->user->id]));
+            ->assertRedirect(route('admin.cool_words.show', ['id' => $this->user->id]));
 
         $this->assertSame(1, $this->coolWordRepository->count());
     }
@@ -58,11 +58,11 @@ class CreateControllerTest extends TestCase
     public function testFailCreate()
     {
         $response = $this->actingAs($this->user)
-            ->from(route('cool_word.admin.cool_words.show', ['id' => $this->user->id]))
-            ->post(route('cool_word.admin.cool_words.create'), []);
+            ->from(route('admin.cool_words.new', ['id' => $this->user->id]))
+            ->post(route('admin.cool_words.create'), []);
 
         $response->assertStatus(302)
-            ->assertRedirect(route('cool_word.admin.cool_words.show', ['id' => $this->user->id]));
+            ->assertRedirect(route('admin.cool_words.new', ['id' => $this->user->id]));
 
         $this->assertSame(0, $this->coolWordRepository->count());
     }

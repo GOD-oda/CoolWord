@@ -30,7 +30,7 @@ class UpdateController extends Controller
         $coolWord->changeDescription($request->get('description'));
         $this->coolWordRepository->store($coolWord);
 
-        return redirect()->route('cool_word.admin.cool_words.show', ['id' => $coolWord->id()->value])
+        return redirect()->route('admin.cool_words.show', ['id' => $coolWord->id()->value])
             ->with('success_msg', '更新成功');
     }
 }

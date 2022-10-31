@@ -2,7 +2,7 @@
 
 @section('main')
   <div class="container py-3">
-    <form action="{{ route('cool_word.admin.cool_words.index') }}" class="row g-3">
+    <form action="{{ route('admin.cool_words.index') }}" class="row g-3">
       <div class="col-8">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name" value="{{ $input['name'] ?? '' }}">
@@ -20,7 +20,7 @@
               <p>{{ $coolWord['name'] }}</p>
               <p>閲覧数: {{ $coolWord['views'] }}</p>
 
-              <a href="{{ route('cool_word.admin.cool_words.show', ['id' => $coolWord['id']]) }}" class="btn btn-primary">詳細</a>
+              <a href="{{ route('admin.cool_words.show', ['id' => $coolWord['id']]) }}" class="btn btn-primary">詳細</a>
             </div>
           </div>
         </div>

@@ -35,6 +35,6 @@ class RegisterController extends Controller
 
         Auth::guard()->login($user);
 
-        return redirect()->route('cool_word.admin.cool_words.index');
+        return redirect()->route('admin.cool_words.index');
     }
 }
