@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Tag whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Tag whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static Builder|Tag name(string $name)
  */
 class Tag extends Model
 {
@@ -29,4 +31,11 @@ class Tag extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function scopeName(Builder $builder, string $name): void
+    {
+        if (!empty($name)) {
+            $builder->where('name', 'like', "%$name%");
+        }
+    }
 }

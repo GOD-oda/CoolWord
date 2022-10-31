@@ -49,4 +49,30 @@ final class EloquentTag implements TagRepository
             name: $tag->name
         );
     }
+
+    public function count(array $where = []): int
+    {
+        return \App\Models\Tag::query()
+            ->name($where['name'] ?? '')
+            ->count();
+    }
+
+    public function index(int $page, int $perPage, array $where = []): TagCollection
+    {
+        $eloquentTags = \App\Models\Tag::query()
+            ->name($where['name'] ?? '')
+            ->forPage($page, $perPage)
+            ->get();
+
+        $collection = $eloquentTags->map(function (\App\Models\Tag $tag) {
+            return new Tag(
+                id: new TagId($tag->id),
+                name: $tag->name
+            );
+        });
+
+        return new TagCollection(...$collection);
+    }
+
+
 }
