@@ -7,7 +7,6 @@ namespace Tests\Feature\Controllers\Web\Tag\Admin;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
-use Main\Domain\CoolWord\TagRepository;
 use Tests\TestCase;
 
 class CreateControllerTest extends TestCase
@@ -15,14 +14,12 @@ class CreateControllerTest extends TestCase
     use DatabaseMigrations;
 
     private User $user;
-    private TagRepository $tagRepository;
 
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->user = User::factory()->create();
-        $this->coolWordRepository = $this->app->make(TagRepository::class);
     }
 
     public function testSuccessCreate(): void
