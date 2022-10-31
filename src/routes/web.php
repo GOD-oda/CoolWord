@@ -26,9 +26,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     });
 
     Route::prefix('tags')->name('tags.')->group(function () {
+        Route::get('/', \App\Http\Controllers\Web\Tag\Admin\IndexController::class)->name('index');
         Route::get('/new', \App\Http\Controllers\Web\Tag\Admin\NewController::class)->name('new');
         Route::post('/create', \App\Http\Controllers\Web\Tag\Admin\CreateController::class)->name('create');
-        Route::get('/{id}', \App\Http\Controllers\Web\Tag\Admin\EditController::class)->name('show');
     });
 });
 

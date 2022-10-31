@@ -29,7 +29,7 @@ class CreateControllerTest extends TestCase
             ->post(route('admin.tags.create'), ['name' => 'foo']);
 
         $response->assertStatus(302)
-            ->assertRedirect(route('admin.tags.show', ['id' => 1]));
+            ->assertRedirect(route('admin.tags.index'));
     }
 
     public function testFailCreate()

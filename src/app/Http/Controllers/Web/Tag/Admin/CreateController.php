@@ -25,10 +25,9 @@ class CreateController extends Controller
 
         $tag = Tag::new(name: $request->get('name'));
 
-        $tagId = $this->tagRepository->store($tag);
-        $newTag = $this->tagRepository->findById($tagId);
+        $this->tagRepository->store($tag);
 
-        return redirect()->route('admin.tags.show', ['id' => $newTag->id()->value])
+        return redirect()->route('admin.tags.index')
             ->with('success_msg', '作成成功');
     }
 }
