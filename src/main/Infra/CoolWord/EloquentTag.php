@@ -36,4 +36,17 @@ final class EloquentTag implements TagRepository
 
         return new TagCollection(...$tags);
     }
+
+    public function findById(TagId $tagId): ?Tag
+    {
+        $tag = \App\Models\Tag::find($tagId->value);
+        if ($tag === null) {
+            return null;
+        }
+
+        return new Tag(
+            id: new TagId($tag->id),
+            name: $tag->name
+        );
+    }
 }
