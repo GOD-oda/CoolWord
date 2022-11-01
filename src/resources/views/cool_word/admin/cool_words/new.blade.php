@@ -32,7 +32,7 @@
       </div>
 
       <div class="mb-3">
-        @include('cool_word.admin.cool_words.form_components.tag', ['tags' => $tags])
+        @include('cool_word.admin.cool_words.form_components.tag', ['tags' => $tags, 'originalTagIds' => []])
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>

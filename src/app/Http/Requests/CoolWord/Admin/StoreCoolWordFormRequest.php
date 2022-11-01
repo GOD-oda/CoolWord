@@ -32,7 +32,13 @@ class StoreCoolWordFormRequest extends FormRequest
             ],
             'description' => [
                 'string'
-            ]
+            ],
+            'tag_ids' => [
+                'array'
+            ],
+            'tag_ids.*' => [
+                'int'
+            ],
         ];
     }
 

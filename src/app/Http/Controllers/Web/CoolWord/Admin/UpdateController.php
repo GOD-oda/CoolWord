@@ -8,19 +8,20 @@ use App\Http\Controllers\Controller;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
+use Main\Domain\CoolWord\TagRepository;
 
 class UpdateController extends Controller
 {
     public function __construct(
-        private CoolWordRepository $coolWordRepository
+        private readonly CoolWordRepository $coolWordRepository,
+        private readonly TagRepository $tagRepository
     ) {}
 
     /**
      * Handle the incoming request.
      *
      * @param int $id
-     * @param Request $request
+     * @param Request $request // TODO: Use FormRequest
      * @return \Illuminate\Http\RedirectResponse
      */
     public function __invoke(int $id, Request $request)
@@ -28,6 +29,10 @@ class UpdateController extends Controller
         $coolWord = $this->coolWordRepository->findById(new CoolWordId($id));
 
         $coolWord->changeDescription($request->get('description'));
+
+        $tags = $this->tagRepository->findByIds($request->get('tag_ids', []));
+        $coolWord->changeTags($tags);
+
         $this->coolWordRepository->store($coolWord);
 
         return redirect()->route('admin.cool_words.show', ['id' => $coolWord->id()->value])

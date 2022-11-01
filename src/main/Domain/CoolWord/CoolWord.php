@@ -64,14 +64,19 @@ final class CoolWord
         $this->tags = $this->tags()->add($tag);
     }
 
-    public static function new(Name $name, string $description): self
+    public function changeTags(TagCollection $tagCollection): void
+    {
+        $this->tags = $tagCollection;
+    }
+
+    public static function new(Name $name, string $description, TagCollection $tagCollection = new TagCollection()): self
     {
         return new self(
             id: null,
             name: $name,
             views: 0,
             description: $description,
-            tags: new TagCollection()
+            tags: $tagCollection
         );
     }
 }
