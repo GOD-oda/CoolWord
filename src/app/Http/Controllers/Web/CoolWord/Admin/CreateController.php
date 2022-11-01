@@ -34,7 +34,7 @@ class CreateController extends Controller
         $coolWord = CoolWord::new(
             name: new Name($request->validated('name')),
             description: $request->validated('description', ''),
-            tagCollection: $this->tagRepository->findByIds($request->validated('tag_ids'))
+            tagCollection: $this->tagRepository->findByIds($request->validated('tag_ids', []))
         );
         if ($this->coolWordService->isDuplicated($coolWord)) {
             throw ValidationException::withMessages([
