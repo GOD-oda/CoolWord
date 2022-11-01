@@ -74,5 +74,17 @@ final class EloquentTag implements TagRepository
         return new TagCollection(...$collection);
     }
 
+    public function all(): TagCollection
+    {
+        $eloquentTags = \App\Models\Tag::all();
 
+        $collection = $eloquentTags->map(function (\App\Models\Tag $tag) {
+            return new Tag(
+                id: new TagId($tag->id),
+                name: $tag->name
+            );
+        });
+
+        return new TagCollection(...$collection);
+    }
 }

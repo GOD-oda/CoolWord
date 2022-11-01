@@ -12,12 +12,14 @@ use Main\Domain\CoolWord\CoolWordService;
 use Main\Domain\CoolWord\Name;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
+use Main\Domain\CoolWord\TagRepository;
 
 class CreateController extends Controller
 {
     public function __construct(
-        private CoolWordService $coolWordService,
-        private CoolWordRepository $coolWordRepository
+        private readonly CoolWordService $coolWordService,
+        private readonly CoolWordRepository $coolWordRepository,
+        private readonly TagRepository $tagRepository
     ) {}
 
     /**
@@ -31,7 +33,8 @@ class CreateController extends Controller
     {
         $coolWord = CoolWord::new(
             name: new Name($request->validated('name')),
-            description: $request->validated('description', '')
+            description: $request->validated('description', ''),
+            tagCollection: $this->tagRepository->findByIds($request->validated('tag_ids', []))
         );
         if ($this->coolWordService->isDuplicated($coolWord)) {
             throw ValidationException::withMessages([

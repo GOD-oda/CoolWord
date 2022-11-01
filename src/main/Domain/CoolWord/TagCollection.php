@@ -6,6 +6,9 @@ namespace Main\Domain\CoolWord;
 
 use Traversable;
 
+/**
+ * TODO: test
+ */
 final class TagCollection implements \IteratorAggregate
 {
     private readonly array $items;

@@ -20,16 +20,20 @@
       </div>
     @endif
 
-    <form action="{{ route('admin.cool_words.update', ['id' => $id]) }}" method="post">
+    <form action="{{ route('admin.cool_words.update', ['id' => $coolWord['id']]) }}" method="post">
       @method('put')
       @csrf
 
       <div class="mb-3">
-        @include('cool_word.admin.cool_words.form_components.name', ['value' => $name, 'disabled' => true])
+        @include('cool_word.admin.cool_words.form_components.name', ['value' => $coolWord['name'], 'disabled' => true])
       </div>
 
       <div class="mb-3">
-        @include('cool_word.admin.cool_words.form_components.description', ['value' => $description])
+        @include('cool_word.admin.cool_words.form_components.description', ['value' => $coolWord['description']])
+      </div>
+
+      <div class="mb-3">
+        @include('cool_word.admin.cool_words.form_components.tag', ['tags' => $tags, 'originalTagIds' => array_column($coolWord['tags'], 'id')])
       </div>
 
       <button type="submit" class="btn btn-primary">Edit</button>

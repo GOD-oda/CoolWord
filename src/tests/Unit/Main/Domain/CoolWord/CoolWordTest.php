@@ -121,6 +121,32 @@ class CoolWordTest extends TestCase
         $this->assertCount(1, $coolWord->tags()->all());
     }
 
+    public function testChangTags(): void
+    {
+        $coolWord = new CoolWord(
+            id: new CoolWordId(1),
+            name: new Name('foo'),
+            views: 0,
+            description: 'foo',
+            tags: new TagCollection(...[
+                new Tag(
+                    id: new TagId(1),
+                    name: 'foo'
+                )
+            ])
+        );
+        $coolWord->changeTags(
+            new TagCollection(...[
+                new Tag(
+                    id: new TagId(2),
+                    name: 'bar'
+                )
+            ])
+        );
+        $this->assertCount(1, $coolWord->tags()->all());
+        $this->assertSame(2, $coolWord->tags()->all()[0]->id()->value);
+    }
+
     public function testNew(): void
     {
         $coolWord = CoolWord::new(
@@ -132,5 +158,6 @@ class CoolWordTest extends TestCase
         $this->assertSame('foo', $coolWord->name()->value);
         $this->assertSame(0, $coolWord->views());
         $this->assertSame('foo', $coolWord->description());
+        $this->assertCount(0, $coolWord->tags());
     }
 }
