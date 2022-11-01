@@ -57,7 +57,7 @@
             "./vendor/bin/phpstan analyse --memory-limit=1G"
         ],
         "setup-data": [
-            "php artisan migrate --seed"
+            "php artisan migrate:fresh --seed"
         ]
     },
     "extra": {

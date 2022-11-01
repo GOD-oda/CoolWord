@@ -49,6 +49,7 @@ class CoolWordRepositoryTest extends TestCase
         $res = $this->coolWordRepository->index($page, $perPage, $where);
         $this->assertInstanceOf(CoolWordCollection::class, $res);
         $this->assertCount($expectedCount, $res);
+        // TODO: tag_id
     }
 
     private function providesIndexPatterns(): array
@@ -70,6 +71,7 @@ class CoolWordRepositoryTest extends TestCase
         $coolWordId = new CoolWordId($coolWord->id);
         $res = $this->coolWordRepository->findById($coolWordId);
         $this->assertInstanceOf(CoolWord::class, $res);
+        // TODO: tag_id
     }
 
     public function testFindByName(): void
@@ -82,6 +84,7 @@ class CoolWordRepositoryTest extends TestCase
         $name = new Name($coolWord->name);
         $res = $this->coolWordRepository->findByName($name);
         $this->assertInstanceOf(CoolWord::class, $res);
+        // TODO: tag_id
     }
 
     public function testStoreNew(): void
