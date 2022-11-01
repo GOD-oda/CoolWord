@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.4](https://github.com/GOD-oda/cool-word/compare/v0.0.3...v0.0.4) - 2022-11-01
+- Feat: Show tags by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/15
+
 ## [v0.0.3](https://github.com/GOD-oda/cool-word/compare/v0.0.2...v0.0.3) - 2022-11-01
 - Fix: routing by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/9
 - Feat: Create tag by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/11
