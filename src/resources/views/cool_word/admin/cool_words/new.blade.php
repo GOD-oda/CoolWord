@@ -31,6 +31,10 @@
         @include('cool_word.admin.cool_words.form_components.description', ['value' => ''])
       </div>
 
+      <div class="mb-3">
+        @include('cool_word.admin.cool_words.form_components.tag', ['tags' => $tags])
+      </div>
+
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
