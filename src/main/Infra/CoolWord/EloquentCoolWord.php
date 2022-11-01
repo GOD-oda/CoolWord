@@ -51,7 +51,7 @@ class EloquentCoolWord implements CoolWordRepository
         $tags = [];
         $coolWord->tags()->each(function (\App\Models\Tag $tag) use (&$tags) {
             $tags[] = new Tag(
-                id: new TagId(1),
+                id: new TagId($tag->id),
                 name: $tag->name
             );
         });
@@ -97,7 +97,7 @@ class EloquentCoolWord implements CoolWordRepository
             $tags = [];
             $coolWord->tags()->each(function (\App\Models\Tag $tag) use (&$tags) {
                 $tags[] = new Tag(
-                    id: new TagId(1), // TODO: 1?
+                    id: new TagId($tag->id),
                     name: $tag->name
                 );
             });
