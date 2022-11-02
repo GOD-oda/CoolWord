@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.5](https://github.com/GOD-oda/cool-word/compare/v0.0.4...v0.0.5) - 2022-11-02
+- viewディレクトリの構造変更とadminのheader調整 by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/17
+
 ## [v0.0.4](https://github.com/GOD-oda/cool-word/compare/v0.0.3...v0.0.4) - 2022-11-01
 - Feat: Show tags by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/15
 
