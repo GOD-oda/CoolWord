@@ -40,11 +40,11 @@ class IndexController extends Controller
             perPage: static::PER_PAGE,
             currentPage: $currentPage,
             options: [
-                'path' => route('cool_word.index')
+                'path' => route('cool_words.index')
             ]
         );
         $paginator->withQueryString();
 
-        return view('cool_word.public.cool_words.index', compact('paginator', 'input'));
+        return view('public.cool_words.index', compact('paginator', 'input'));
     }
 }

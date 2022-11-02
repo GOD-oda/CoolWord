@@ -1,4 +1,4 @@
-@extends('cool_word.admin.base')
+@extends('admin.base')
 
 @section('main')
   <div class="container py-3">
@@ -20,23 +20,14 @@
       </div>
     @endif
 
-    <form action="{{ route('admin.cool_words.update', ['id' => $coolWord['id']]) }}" method="post">
-      @method('put')
+    <form action="{{ route('admin.tags.create') }}" method="post">
       @csrf
 
       <div class="mb-3">
-        @include('cool_word.admin.cool_words.form_components.name', ['value' => $coolWord['name'], 'disabled' => true])
+        @include('admin.tags.form_components.name', ['value' => '', 'disabled' => false])
       </div>
 
-      <div class="mb-3">
-        @include('cool_word.admin.cool_words.form_components.description', ['value' => $coolWord['description']])
-      </div>
-
-      <div class="mb-3">
-        @include('cool_word.admin.cool_words.form_components.tag', ['tags' => $tags, 'originalTagIds' => array_column($coolWord['tags'], 'id')])
-      </div>
-
-      <button type="submit" class="btn btn-primary">Edit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 @endsection

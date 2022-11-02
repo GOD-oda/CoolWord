@@ -21,7 +21,7 @@ class NewController extends Controller
         $tagCollection = $this->tagRepository->all();
         $tagResource = TagResource::collection($tagCollection->all());
 
-        return view('cool_word.admin.cool_words.new', [
+        return view('admin.cool_words.new', [
             'tags' => $tagResource->collection->map->toArray()->all()
         ]);
     }

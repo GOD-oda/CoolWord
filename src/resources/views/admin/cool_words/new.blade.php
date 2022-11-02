@@ -1,4 +1,4 @@
-@extends('cool_word.admin.base')
+@extends('admin.base')
 
 @section('main')
   <div class="container py-3">
@@ -20,11 +20,19 @@
       </div>
     @endif
 
-    <form action="{{ route('admin.tags.create') }}" method="post">
+    <form action="{{ route('admin.cool_words.create') }}" method="post">
       @csrf
 
       <div class="mb-3">
-        @include('cool_word.admin.tags.form_components.name', ['value' => '', 'disabled' => false])
+        @include('admin.cool_words.form_components.name', ['value' => '', 'disabled' => false])
+      </div>
+
+      <div class="mb-3">
+        @include('admin.cool_words.form_components.description', ['value' => ''])
+      </div>
+
+      <div class="mb-3">
+        @include('admin.cool_words.form_components.tag', ['tags' => $tags, 'originalTagIds' => []])
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>

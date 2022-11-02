@@ -1,8 +1,15 @@
-@extends('cool_word.admin.base')
+@extends('admin.base')
 
 @section('main')
   <div class="container py-3">
-    <form action="{{ route('admin.cool_words.index') }}" class="row g-3">
+    @if (session('success_msg'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success_msg') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+
+    <form action="{{ route('admin.tags.index') }}" class="row g-3">
       <div class="col-8">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name" value="{{ $input['name'] ?? '' }}">
@@ -13,14 +20,11 @@
     </form>
 
     <div class="row">
-      @foreach ($paginator->items() as $coolWord)
+      @foreach ($paginator->items() as $tag)
         <div class="col-md-4 col-sm-12 my-3">
           <div class="card">
             <div class="card-body">
-              <p>{{ $coolWord['name'] }}</p>
-              <p>閲覧数: {{ $coolWord['views'] }}</p>
-
-              <a href="{{ route('admin.cool_words.show', ['id' => $coolWord['id']]) }}" class="btn btn-primary">詳細</a>
+              <p>{{ $tag['name'] }}</p>
             </div>
           </div>
         </div>

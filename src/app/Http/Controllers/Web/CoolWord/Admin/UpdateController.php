@@ -10,6 +10,9 @@ use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Http\Request;
 use Main\Domain\CoolWord\TagRepository;
 
+/**
+ * TODO: test
+ */
 class UpdateController extends Controller
 {
     public function __construct(
