@@ -10,8 +10,45 @@
 </head>
 <body>
 
-<header>
-  @include('admin.header')
+<header class="my-2">
+  <div class="container">
+    @if (Auth::check())
+      <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid justify-content-end">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="cool-word" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                CoolWord
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="cool-word">
+                <li><a class="dropdown-item" href="{{ route('admin.cool_words.new') }}">新規作成</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.cool_words.index') }}">一覧</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="tag" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tag
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="tag">
+                <li><a class="dropdown-item" href="{{ route('admin.tags.new') }}">新規作成</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.tags.index') }}">一覧</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form action="{{ route('auth.logout') }}" method="POST">
+            @csrf
+
+            <button type="submit" class="btn btn-outline-primary">Log out</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    @endif
+  </div>
 </header>
 
 <main>
