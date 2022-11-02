@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Main\Domain\CoolWord\Tag;
 use Main\Domain\CoolWord\TagRepository;
 
+/**
+ * TODO: test
+ */
 class CreateController extends Controller
 {
     public function __construct(private readonly TagRepository $tagRepository)

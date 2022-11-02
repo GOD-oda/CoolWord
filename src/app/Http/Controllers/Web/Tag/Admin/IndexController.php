@@ -7,6 +7,9 @@ use App\Http\Resources\Tag\TagResource;
 use Illuminate\Http\Request;
 use Main\Domain\CoolWord\TagRepository;
 
+/**
+ * TODO: test
+ */
 class IndexController extends Controller
 {
     private const PER_PAGE = 30;
@@ -49,6 +52,6 @@ class IndexController extends Controller
         );
         $paginator->withQueryString();
 
-        return view('cool_word.admin.tags.index', compact('paginator', 'input'));
+        return view('admin.tags.index', compact('paginator', 'input'));
     }
 }

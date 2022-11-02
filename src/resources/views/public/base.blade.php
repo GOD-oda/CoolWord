@@ -18,7 +18,7 @@
 <header>
   <nav class="navbar navbar-light">
     {{-- TODO: トップページを作る --}}
-    <a class="navbar-brand" href="{{ route('cool_word.index') }}">
+    <a class="navbar-brand" href="{{ route('cool_words.index') }}">
       <img src="{{ asset('img/logo.png') }}" alt="CoolWord" width="80" height="50">
     </a>
   </nav>

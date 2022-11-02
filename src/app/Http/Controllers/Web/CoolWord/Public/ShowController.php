@@ -35,7 +35,7 @@ class ShowController extends Controller
 
         $this->dispatcher->dispatch(new CoolWordViewed($coolWordId));
 
-        return view('cool_word.public.cool_words.show', [
+        return view('public.cool_words.show', [
             'coolWord' => $resource->toArray()
         ]);
     }

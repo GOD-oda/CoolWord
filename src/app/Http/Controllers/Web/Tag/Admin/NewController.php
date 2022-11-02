@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Web\Tag\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+/**
+ * TODO: test
+ */
 class NewController extends Controller
 {
     /**
@@ -12,6 +15,6 @@ class NewController extends Controller
      */
     public function __invoke()
     {
-        return view('cool_word.admin.tags.new');
+        return view('admin.tags.new');
     }
 }

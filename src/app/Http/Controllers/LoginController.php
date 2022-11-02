@@ -8,9 +8,12 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
+    /**
+     * TODO: test
+     */
     public function show()
     {
-        return view('auth.login');
+        return view('admin.auth.login');
     }
 
     public function login(Request $request)

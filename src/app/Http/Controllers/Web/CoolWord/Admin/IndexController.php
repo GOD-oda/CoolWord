@@ -52,6 +52,6 @@ class IndexController extends Controller
         );
         $paginator->withQueryString();
 
-        return view('cool_word.admin.cool_words.index', compact('paginator', 'input'));
+        return view('admin.cool_words.index', compact('paginator', 'input'));
     }
 }

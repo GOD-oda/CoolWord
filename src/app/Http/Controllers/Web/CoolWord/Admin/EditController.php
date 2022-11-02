@@ -28,12 +28,15 @@ class EditController extends Controller
         $coolWordId = new CoolWordId($id);
 
         $coolWord = $this->coolWordRepository->findById($coolWordId);
+        if ($coolWord === null) {
+            abort(404);
+        }
         $coolWordResource = CoolWordResource::make($coolWord);
 
         $tagCollection = $this->tagRepository->all();
         $tagResource = TagResource::collection($tagCollection->all());
 
-        return view('cool_word.admin.cool_words.edit', [
+        return view('admin.cool_words.edit', [
             'coolWord' => $coolWordResource->toArray(),
             'tags' => $tagResource->collection->map->toArray()->all()
         ]);
