@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.6](https://github.com/GOD-oda/cool-word/compare/v0.0.5...v0.0.6) - 2022-11-04
+- Feat: Search by tag by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/19
+- Php cs fixer by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/21
+
 ## [v0.0.5](https://github.com/GOD-oda/cool-word/compare/v0.0.4...v0.0.5) - 2022-11-02
 - viewディレクトリの構造変更とadminのheader調整 by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/17
 
