@@ -6,16 +6,19 @@ namespace App\Http\Controllers\Web\CoolWord\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CoolWord\CoolWordResource;
+use App\Http\Resources\Tag\TagResource;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Http\Request;
+use Main\Domain\CoolWord\TagRepository;
 
 class IndexController extends Controller
 {
-    private const PER_PAGE = 25;
+    private const PER_PAGE = 30;
 
-    public function __construct(private CoolWordRepository $coolWordRepository)
-    {
-    }
+    public function __construct(
+        private readonly CoolWordRepository $coolWordRepository,
+        private readonly TagRepository $tagRepository
+    ) {}
 
     /**
      * Handle the incoming request.
@@ -30,14 +33,17 @@ class IndexController extends Controller
         $where = [
             'name' => $request->get('name', '')
         ];
+        $tagCollection = $this->tagRepository->findByIds($request->get('tag_ids', []));
 
         $count = $this->coolWordRepository->count(
-            where: $where
+            where: $where,
+            tagCollection: $tagCollection
         );
         $coolWordCollection = $this->coolWordRepository->index(
             page: $currentPage,
             perPage: static::PER_PAGE,
-            where: $where
+            where: $where,
+            tagCollection: $tagCollection
         );
 
         $resource = CoolWordResource::collection($coolWordCollection->all());
@@ -52,6 +58,14 @@ class IndexController extends Controller
         );
         $paginator->withQueryString();
 
-        return view('admin.cool_words.index', compact('paginator', 'input'));
+        $tagResource = TagResource::collection($this->tagRepository->all()->all());
+        $tags = $tagResource->collection->map->toArray()->all();
+
+        return view('admin.cool_words.index', [
+            'paginator' => $paginator,
+            'input' => $input,
+            'tags' => $tags,
+            'originalTagIds' => $input['tag_ids'] ?? []
+        ]);
     }
 }

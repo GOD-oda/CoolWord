@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Main\Domain\CoolWord;
 
 use App\Models\CoolWord as EloquentCoolWord;
+use Database\Factories\TagFactory;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Main\Domain\CoolWord\CoolWord;
 use Main\Domain\CoolWord\CoolWordCollection;
@@ -59,6 +60,58 @@ class CoolWordRepositoryTest extends TestCase
             [['name' => 'foo'], 1, 1, ['name' => 'foo'], 1],
             [[], 1, 1, ['name' => 'foo'], 0],
         ];
+    }
+
+    public function testIndexByTags(): void
+    {
+        $page = 1;
+        $perPage = 1;
+
+        $tagCollection = new TagCollection();
+        $res = $this->coolWordRepository->index(
+            page: $page,
+            perPage: $perPage,
+            tagCollection: $tagCollection
+        );
+        $this->assertCount(0, $res);
+
+        /** @var \App\Models\Tag $tag */
+        $unusedTag = TagFactory::new()->create();
+        $eloquentCoolWord = CoolWordFactory::new()->has(TagFactory::new())->create();
+
+        $tagCollection = new TagCollection(...[
+            new Tag(
+                id: new TagId($unusedTag->id),
+                name: $unusedTag->name
+            )
+        ]);
+        $res = $this->coolWordRepository->index(
+            page: $page,
+            perPage: $perPage,
+            tagCollection: $tagCollection
+        );
+        $this->assertCount(0, $res);
+
+        $tagCollection = new TagCollection(...[
+            new Tag(
+                id: new TagId($eloquentCoolWord->tags()->first()->id),
+                name: $eloquentCoolWord->tags()->first()->name
+            )
+        ]);
+        $coolWord = new CoolWord(
+            id: new CoolWordId(value: $eloquentCoolWord->id),
+            name: new Name(value: $eloquentCoolWord->name),
+            views: $eloquentCoolWord->views,
+            description: $eloquentCoolWord->description,
+            tags: $tagCollection
+        );
+        $res = $this->coolWordRepository->index(
+            page: $page,
+            perPage: $perPage,
+            tagCollection: $tagCollection
+        );
+        $this->assertCount(1, $res);
+        $this->assertEquals([$coolWord], $res->all());
     }
 
     public function testFindById(): void
@@ -154,9 +207,21 @@ class CoolWordRepositoryTest extends TestCase
     {
         $this->assertSame(0, $this->coolWordRepository->count());
 
-        EloquentCoolWord::factory()->create();
-
+        $eloquentCoolWord = EloquentCoolWord::factory()->create();
         $this->assertSame(1, $this->coolWordRepository->count());
+        $this->assertSame(1, $this->coolWordRepository->count(where: ['name' => $eloquentCoolWord->name]));
+
+        $eloquentCoolWord = CoolWordFactory::new()->has(TagFactory::new())->create();
+        $tagCollection = new TagCollection(...[
+            new Tag(
+                id: new TagId($eloquentCoolWord->tags()->first()->id),
+                name: $eloquentCoolWord->tags()->first()->name
+            )
+        ]);
+
+        $this->assertSame(1, $this->coolWordRepository->count(
+            tagCollection: $tagCollection
+        ));
     }
 
     public function testCountUpViews()

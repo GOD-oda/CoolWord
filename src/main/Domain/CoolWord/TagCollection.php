@@ -31,6 +31,17 @@ final class TagCollection implements \IteratorAggregate
         return $this->items;
     }
 
+    public function ids(): array
+    {
+        $ids = [];
+
+        foreach ($this->items as $item) {
+            $ids[] = $item->id()->value;
+        }
+
+        return $ids;
+    }
+
     public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->items);

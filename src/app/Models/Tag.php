@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\CoolWord\Tag
@@ -31,6 +32,11 @@ class Tag extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function coolWord(): BelongsTo
+    {
+        return $this->belongsTo(CoolWord::class);
+    }
 
     public function scopeName(Builder $builder, string $name): void
     {
