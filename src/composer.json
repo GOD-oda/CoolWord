@@ -60,6 +60,9 @@
         "setup-data": [
             "php artisan migrate:fresh --seed"
         ],
+        "phpcsfixer": [
+            "./vendor/bin/php-cs-fixer fix"
+        ],
         "phpcsfixer-dry-run": [
             "./vendor/bin/php-cs-fixer fix -v --diff --dry-run"
         ]

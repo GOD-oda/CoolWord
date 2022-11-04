@@ -16,7 +16,8 @@ class EditController extends Controller
     public function __construct(
         private readonly CoolWordRepository $coolWordRepository,
         private readonly TagRepository $tagRepository
-    ) {}
+    ) {
+    }
 
     /**
      * Handle the incoming request.
@@ -40,6 +41,5 @@ class EditController extends Controller
             'coolWord' => $coolWordResource->toArray(),
             'tags' => $tagResource->collection->map->toArray()->all()
         ]);
-
     }
 }

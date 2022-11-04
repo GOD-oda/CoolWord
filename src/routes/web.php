@@ -53,5 +53,3 @@ Route::prefix('cool_words')->name('cool_words.')->group(function () {
     Route::get('/', \App\Http\Controllers\Web\CoolWord\Public\IndexController::class)->name('index');
     Route::get('/{id}', \App\Http\Controllers\Web\CoolWord\Public\ShowController::class)->name('show');
 });
-
-

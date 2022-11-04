@@ -18,7 +18,8 @@ class UpdateController extends Controller
     public function __construct(
         private readonly CoolWordRepository $coolWordRepository,
         private readonly TagRepository $tagRepository
-    ) {}
+    ) {
+    }
 
     /**
      * Handle the incoming request.

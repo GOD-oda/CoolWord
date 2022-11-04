@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory()->admin()->create();
-         CoolWord::factory(30)
-             ->has(Tag::factory()->count(3))
-             ->create();
+        User::factory()->admin()->create();
+        CoolWord::factory(30)
+            ->has(Tag::factory()->count(3))
+            ->create();
     }
 }
