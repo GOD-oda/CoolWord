@@ -14,7 +14,9 @@ class CoolWordViewedListener
      *
      * @return void
      */
-    public function __construct(private CoolWordRepository $repository) {}
+    public function __construct(private CoolWordRepository $repository)
+    {
+    }
 
     /**
      * Handle the event.

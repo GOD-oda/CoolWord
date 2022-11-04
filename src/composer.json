@@ -15,6 +15,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
+        "friendsofphp/php-cs-fixer": "^3.13",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
@@ -58,6 +59,12 @@
         ],
         "setup-data": [
             "php artisan migrate:fresh --seed"
+        ],
+        "phpcsfixer": [
+            "./vendor/bin/php-cs-fixer fix"
+        ],
+        "phpcsfixer-dry-run": [
+            "./vendor/bin/php-cs-fixer fix -v --diff --dry-run"
         ]
     },
     "extra": {

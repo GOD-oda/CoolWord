@@ -13,14 +13,18 @@ use Illuminate\Queue\SerializesModels;
 
 class CoolWordViewed
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(public CoolWordId $coolWordId) {}
+    public function __construct(public CoolWordId $coolWordId)
+    {
+    }
 
     /**
      * Get the channels the event should broadcast on.

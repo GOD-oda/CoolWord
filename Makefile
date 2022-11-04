@@ -33,3 +33,9 @@ phpunit:
 
 phpstan:
 	docker compose run --rm app composer phpstan
+
+phpcsfixer:
+	docker compose run --rm app composer phpcsfixer
+
+phpcsfixer-dry-run:
+	docker compose run --rm app composer phpcsfixer-dry-run

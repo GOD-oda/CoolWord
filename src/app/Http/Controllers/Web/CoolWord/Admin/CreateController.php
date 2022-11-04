@@ -20,7 +20,8 @@ class CreateController extends Controller
         private readonly CoolWordService $coolWordService,
         private readonly CoolWordRepository $coolWordRepository,
         private readonly TagRepository $tagRepository
-    ) {}
+    ) {
+    }
 
     /**
      * Handle the incoming request.

@@ -1,0 +1,15 @@
+name: PhpCsFixer
+on:
+  push:
+    branches:
+      - '**'
+jobs:
+  phpunit:
+    name: php-cs-fixer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Init
+        run: make setup
+      - name: Run phpcsfixer
+        run: make phpcsfixer-dry-run

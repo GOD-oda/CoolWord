@@ -15,7 +15,8 @@ class ShowController extends Controller
     public function __construct(
         private CoolWordRepository $coolWordRepository,
         private Dispatcher $dispatcher
-    ) {}
+    ) {
+    }
 
     /**
      * Handle the incoming request.
