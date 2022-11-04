@@ -86,12 +86,18 @@ class EloquentCoolWord implements CoolWordRepository
         return new CoolWordId($eloquentCoolWord->id);
     }
 
-    public function index(int $page, int $perPage, array $where = []): CoolWordCollection
+    public function index(int $page, int $perPage, array $where = [], TagCollection $tagCollection = new TagCollection()): CoolWordCollection
     {
-        $eloquentCoolWords = \App\Models\CoolWord::query()
-            ->name($where['name'] ?? '')
-            ->forPage($page, $perPage)
-            ->get();
+        $query = \App\Models\CoolWord::query()
+            ->with('tags')
+            ->name($where['name'] ?? '');
+
+        $tagIds = $tagCollection->ids();
+        if (!empty($tagIds)) {
+            $query = $query->whereHas('tags', fn ($query) => $query->whereIn('tag_id', $tagIds));
+        }
+
+        $eloquentCoolWords = $query->forPage($page, $perPage)->get();
 
         $collection = $eloquentCoolWords->map(function (\App\Models\CoolWord $coolWord) {
             $tags = [];
@@ -114,11 +120,16 @@ class EloquentCoolWord implements CoolWordRepository
         return new CoolWordCollection(...$collection);
     }
 
-    public function count(array $where = []): int
+    public function count(array $where = [], TagCollection $tagCollection = new TagCollection()): int
     {
-        return \App\Models\CoolWord::query()
-            ->name($where['name'] ?? '')
-            ->count();
+        $query = \App\Models\CoolWord::query()->name($where['name'] ?? '');
+
+        $tagIds = $tagCollection->ids();
+        if (!empty($tagIds)) {
+            $query = $query->whereHas('tags', fn ($query) => $query->whereIn('tag_id', $tagIds));
+        }
+
+        return $query->count();
     }
 
     public function countUpViews(CoolWordId $id, int $increments): void

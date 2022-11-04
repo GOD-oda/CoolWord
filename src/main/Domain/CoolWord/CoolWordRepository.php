@@ -6,7 +6,8 @@ namespace Main\Domain\CoolWord;
 
 interface CoolWordRepository
 {
-    public function index(int $page, int $perPage, array $where = []): CoolWordCollection;
+    // TODO: Criteria insteadof $where
+    public function index(int $page, int $perPage, array $where = [], TagCollection $tagCollection = new TagCollection()): CoolWordCollection;
 
     public function findById(CoolWordId $id): ?CoolWord;
 
@@ -14,7 +15,8 @@ interface CoolWordRepository
 
     public function store(CoolWord $coolWord): CoolWordId;
 
-    public function count(array $where = []): int;
+    // TODO: Criteria insteadof $where
+    public function count(array $where = [], TagCollection $tagCollection = new TagCollection()): int;
 
     public function countUpViews(CoolWordId $id, int $increments): void;
 }

@@ -3,6 +3,26 @@
 @section('main')
   <div class="index">
     <div class="container py-3">
+      <form action="{{ route('cool_words.index') }}">
+        <div class="row">
+          <div class="col-6">
+            @include('public.cool_words.form_components.name', ['value' => $input['name'] ?? ''])
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            @include('public.cool_words.form_components.tag', ['tags' => $tags, 'originalTagIds' => $originalTagIds])
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4 mt-auto">
+            <button type="submit" class="btn btn-primary">検索</button>
+          </div>
+        </div>
+      </form>
+
       <div class="row">
         @foreach ($paginator->items() as $coolWord)
           <div class="col-sm-12 col-md-4 card-box">

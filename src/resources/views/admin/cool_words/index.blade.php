@@ -2,13 +2,24 @@
 
 @section('main')
   <div class="container py-3">
-    <form action="{{ route('admin.cool_words.index') }}" class="row g-3">
-      <div class="col-8">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $input['name'] ?? '' }}">
+    <form action="{{ route('admin.cool_words.index') }}">
+      <div class="row">
+        <div class="col-6">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" value="{{ $input['name'] ?? '' }}">
+        </div>
       </div>
-      <div class="col-4 mt-auto">
-        <button type="submit" class="btn btn-primary">検索</button>
+
+      <div class="row">
+        <div class="col-12">
+          @include('admin.cool_words.form_components.tag', ['tags' => $tags, 'originalTagIds' => $originalTagIds])
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 mt-auto">
+          <button type="submit" class="btn btn-primary">検索</button>
+        </div>
       </div>
     </form>
 
