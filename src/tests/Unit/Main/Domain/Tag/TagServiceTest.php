@@ -14,8 +14,8 @@ class TagServiceTest extends TestCase
 {
     use DatabaseMigrations;
 
-    private readonly TagRepository $tagRepository;
-    private readonly TagService $tagService;
+    private TagRepository $tagRepository;
+    private TagService $tagService;
 
     protected function setUp(): void
     {
