@@ -2,15 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Main\Infra\CoolWord;
+namespace Main\Infra\Tag;
 
-use Main\Domain\CoolWord\Tag;
-use Main\Domain\CoolWord\TagCollection;
-use Main\Domain\CoolWord\TagId;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagCollection;
+use Main\Domain\Tag\TagFactory;
+use Main\Domain\Tag\TagId;
+use Main\Domain\Tag\TagRepository;
 
 final class EloquentTag implements TagRepository
 {
+    public function __construct(private readonly TagFactory $tagFactory)
+    {
+    }
+
     public function store(Tag $tag): TagId
     {
         if ($tag->hasId()) {
@@ -28,10 +33,7 @@ final class EloquentTag implements TagRepository
     public function findByIds(array $ids): TagCollection
     {
         $tags = \App\Models\Tag::find($ids)->map(function ($tag) {
-            return new Tag(
-                id: new TagId($tag->id),
-                name: $tag->name
-            );
+            return $this->tagFactory->buildFromEloquent($tag);
         });
 
         return new TagCollection(...$tags);
@@ -44,10 +46,7 @@ final class EloquentTag implements TagRepository
             return null;
         }
 
-        return new Tag(
-            id: new TagId($tag->id),
-            name: $tag->name
-        );
+        return $this->tagFactory->buildFromEloquent($tag);
     }
 
     public function count(array $where = []): int
@@ -65,10 +64,7 @@ final class EloquentTag implements TagRepository
             ->get();
 
         $collection = $eloquentTags->map(function (\App\Models\Tag $tag) {
-            return new Tag(
-                id: new TagId($tag->id),
-                name: $tag->name
-            );
+            return $this->tagFactory->buildFromEloquent($tag);
         });
 
         return new TagCollection(...$collection);
@@ -79,12 +75,20 @@ final class EloquentTag implements TagRepository
         $eloquentTags = \App\Models\Tag::all();
 
         $collection = $eloquentTags->map(function (\App\Models\Tag $tag) {
-            return new Tag(
-                id: new TagId($tag->id),
-                name: $tag->name
-            );
+            return $this->tagFactory->buildFromEloquent($tag);
         });
 
         return new TagCollection(...$collection);
+    }
+
+    public function findByName(Tag $tag): ?Tag
+    {
+        $eloquentTag = \App\Models\Tag::name($tag->name())->first();
+
+        if ($eloquentTag === null) {
+            return null;
+        }
+
+        return $this->tagFactory->buildFromEloquent($eloquentTag);
     }
 }

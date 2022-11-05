@@ -8,7 +8,7 @@ use App\Http\Resources\Tag\TagResource;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\TagRepository;
 
 class IndexController extends Controller
 {

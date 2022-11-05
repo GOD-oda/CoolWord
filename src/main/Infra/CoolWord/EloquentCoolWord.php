@@ -9,9 +9,9 @@ use Main\Domain\CoolWord\CoolWordCollection;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Main\Domain\CoolWord\Name;
-use Main\Domain\CoolWord\Tag;
-use Main\Domain\CoolWord\TagCollection;
-use Main\Domain\CoolWord\TagId;
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagCollection;
+use Main\Domain\Tag\TagId;
 
 class EloquentCoolWord implements CoolWordRepository
 {

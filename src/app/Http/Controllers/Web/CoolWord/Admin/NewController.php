@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web\CoolWord\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Tag\TagResource;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\TagRepository;
 
 class NewController extends Controller
 {

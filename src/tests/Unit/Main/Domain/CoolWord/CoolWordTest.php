@@ -7,9 +7,9 @@ namespace Tests\Unit\Main\Domain\CoolWord;
 use Main\Domain\CoolWord\CoolWord;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\Name;
-use Main\Domain\CoolWord\Tag;
-use Main\Domain\CoolWord\TagCollection;
-use Main\Domain\CoolWord\TagId;
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagCollection;
+use Main\Domain\Tag\TagId;
 use Tests\TestCase;
 
 class CoolWordTest extends TestCase

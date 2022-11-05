@@ -10,7 +10,7 @@ use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Main\Domain\CoolWord\CoolWordService;
 use Main\Domain\CoolWord\Name;
-use Main\Domain\CoolWord\TagCollection;
+use Main\Domain\Tag\TagCollection;
 use Tests\TestCase;
 
 class CoolWordServiceTest extends TestCase

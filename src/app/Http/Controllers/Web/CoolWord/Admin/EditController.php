@@ -9,7 +9,7 @@ use App\Http\Resources\Tag\TagResource;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Events\Dispatcher;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\TagRepository;
 
 class EditController extends Controller
 {
