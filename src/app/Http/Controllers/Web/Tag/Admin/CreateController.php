@@ -29,8 +29,6 @@ class CreateController extends Controller
      */
     public function __invoke(Request $request): RedirectResponse
     {
-        // TODO: check duplicated
-
         $tag = Tag::new(name: $request->get('name'));
         if ($this->tagService->isDuplicated($tag)) {
             throw ValidationException::withMessages([
