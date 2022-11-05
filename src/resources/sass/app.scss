@@ -38,14 +38,13 @@ body.cool_word {
         a {
           text-decoration: none;
         }
-
-        .tags {
-          span {
-            border: solid 1px #999;
-            border-radius: 8px;
-            padding: 4px;
-            font-size: .8rem;
-          }
+      }
+      .cool-word {
+        .tag {
+          border: solid 1px #999;
+          border-radius: 50rem;
+          padding: 5px;
+          font-size: .8rem;
         }
       }
       .pagination {
