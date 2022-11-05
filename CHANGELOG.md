@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.0.7](https://github.com/GOD-oda/cool-word/compare/v0.0.6...v0.0.7) - 2022-11-05
+- Fix: Add .php-cs-fixer.cache to .gitignore by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/22
+- Fix: node-16 by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/24
+- Check duplicated tag by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/25
+- fix: Remove todo comment by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/26
+- fix: index ui in public by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/27
+
 ## [v0.0.6](https://github.com/GOD-oda/cool-word/compare/v0.0.5...v0.0.6) - 2022-11-04
 - Feat: Search by tag by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/19
 - Php cs fixer by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/21
