@@ -15,6 +15,8 @@ interface TagRepository
 
     public function findByIds(array $ids): TagCollection;
 
+    public function findByName(Tag $tag): ?Tag;
+
     public function count(array $where = []): int;
 
     public function index(int $page, int $perPage, array $where = []): TagCollection;
