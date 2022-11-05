@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Main\Domain\CoolWord;
 
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagCollection;
+
 final class CoolWord
 {
     public function __construct(

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Tag\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Tag\TagResource;
 use Illuminate\Http\Request;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\TagRepository;
 
 /**
  * TODO: test

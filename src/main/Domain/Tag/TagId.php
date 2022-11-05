@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Main\Domain\CoolWord;
+namespace Main\Domain\Tag;
 
 final class TagId
 {

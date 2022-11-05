@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Main\Domain\CoolWord;
 
+use Main\Domain\Tag\TagCollection;
+
 interface CoolWordRepository
 {
     // TODO: Criteria insteadof $where

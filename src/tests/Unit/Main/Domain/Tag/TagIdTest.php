@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Main\Domain\CoolWord;
+namespace Tests\Unit\Main\Domain\Tag;
 
-use Main\Domain\CoolWord\TagId;
+use Main\Domain\Tag\TagId;
 use Tests\TestCase;
 
 class TagIdTest extends TestCase

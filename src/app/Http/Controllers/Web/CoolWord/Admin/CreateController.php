@@ -12,7 +12,7 @@ use Main\Domain\CoolWord\CoolWordService;
 use Main\Domain\CoolWord\Name;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\TagRepository;
 
 class CreateController extends Controller
 {

@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Illuminate\Http\Request;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\TagRepository;
 
 /**
  * TODO: test

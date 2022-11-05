@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Web\Tag\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Main\Domain\CoolWord\Tag;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagRepository;
 
 /**
  * TODO: test

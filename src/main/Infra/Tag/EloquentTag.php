@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Main\Infra\CoolWord;
+namespace Main\Infra\Tag;
 
-use Main\Domain\CoolWord\Tag;
-use Main\Domain\CoolWord\TagCollection;
-use Main\Domain\CoolWord\TagId;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagCollection;
+use Main\Domain\Tag\TagId;
+use Main\Domain\Tag\TagRepository;
 
 final class EloquentTag implements TagRepository
 {

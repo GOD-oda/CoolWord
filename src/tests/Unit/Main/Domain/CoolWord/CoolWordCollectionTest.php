@@ -8,7 +8,7 @@ use Main\Domain\CoolWord\CoolWord;
 use Main\Domain\CoolWord\CoolWordCollection;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\Name;
-use Main\Domain\CoolWord\TagCollection;
+use Main\Domain\Tag\TagCollection;
 use Tests\TestCase;
 
 class CoolWordCollectionTest extends TestCase

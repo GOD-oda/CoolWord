@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Main\Infra\CoolWord;
+namespace Tests\Unit\Main\Infra\Tag;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Main\Domain\CoolWord\Tag;
-use Main\Domain\CoolWord\TagCollection;
-use Main\Domain\CoolWord\TagId;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagCollection;
+use Main\Domain\Tag\TagId;
+use Main\Domain\Tag\TagRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;

@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Main\Domain\CoolWord\TagRepository;
-use Main\Infra\CoolWord\EloquentTag;
+use Main\Domain\Tag\TagRepository;
+use Main\Infra\Tag\EloquentTag;
 use Illuminate\Support\ServiceProvider;
 
 class TagServiceProvider extends ServiceProvider

@@ -12,10 +12,10 @@ use Main\Domain\CoolWord\CoolWordCollection;
 use Main\Domain\CoolWord\CoolWordId;
 use Main\Domain\CoolWord\CoolWordRepository;
 use Main\Domain\CoolWord\Name;
-use Main\Domain\CoolWord\Tag;
-use Main\Domain\CoolWord\TagCollection;
-use Main\Domain\CoolWord\TagId;
-use Main\Domain\CoolWord\TagRepository;
+use Main\Domain\Tag\Tag;
+use Main\Domain\Tag\TagCollection;
+use Main\Domain\Tag\TagId;
+use Main\Domain\Tag\TagRepository;
 use Database\Factories\CoolWordFactory;
 use Tests\TestCase;
 
