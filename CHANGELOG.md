@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.8](https://github.com/GOD-oda/cool-word/compare/v0.0.7...v0.0.8) - 2022-11-08
+- fix: cool words table UI by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/28
+
 ## [v0.0.7](https://github.com/GOD-oda/cool-word/compare/v0.0.6...v0.0.7) - 2022-11-05
 - Fix: Add .php-cs-fixer.cache to .gitignore by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/22
 - Fix: node-16 by @GOD-oda in https://github.com/GOD-oda/cool-word/pull/24
