@@ -39,16 +39,51 @@ body.cool_word {
           text-decoration: none;
         }
       }
-      .cool-word {
-        .tag {
-          border: solid 1px #999;
-          border-radius: 50rem;
-          padding: 5px;
-          font-size: .8rem;
-        }
-      }
       .pagination {
         margin: 1rem 0;
+      }
+      table.cool-word-table {
+        width: 100%;
+        thead {
+          color: #333;
+          border-bottom: solid 1px;
+          border-bottom-color: rgba(33,37,41,0.65);
+          tr {
+            th {
+              padding: .5rem 0;
+            }
+          }
+        }
+        tbody {
+          tr.cool-word {
+            padding: .5rem 0;
+            &:not(:last-child) {
+              border-bottom: solid 1px;
+              border-bottom-color: rgba(33,37,41,0.15);
+            }
+            th.cool-word-name {
+              a {
+                color: #3d8bfd;
+              }
+            }
+            .cool-word-tag {
+              padding: 0;
+              @include pc {
+                padding: 0.2rem;
+              }
+              .tag {
+                border: solid 1px #999;
+                border-radius: 15px;
+                padding: 5px;
+                @include pc {
+                  padding: 8px;
+                }
+                font-size: .8rem;
+                margin: 0.25rem;
+              }
+            }
+          }
+        }
       }
     }
   }

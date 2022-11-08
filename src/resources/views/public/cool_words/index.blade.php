@@ -19,7 +19,7 @@
         </div>
       </form>
 
-      <table class="table">
+      <table class="cool-word-table">
         <thead>
         <tr>
           <th scope="col" colspan="5">Name</th>
@@ -31,12 +31,12 @@
         <tbody>
         @foreach ($paginator->items() as $coolWord)
           <tr class="cool-word">
-            <th scope="row" colspan="5">
+            <th scope="row" colspan="5" class="cool-word-name">
               <a href="{{ route('cool_words.show', ['id' => $coolWord['id']]) }}">{{ $coolWord['name'] }}</a>
             </th>
-            <td colspan="5">
+            <td class="cool-word-tag d-flex align-items-center flex-wrap" colspan="5">
               @foreach ($coolWord['tags'] as $tag)
-                <span class="mx-1 tag">{{ $tag['name'] }}</span>
+                <span class="tag">{{ $tag['name'] }}</span>
               @endforeach
             </td>
             <td colspan="2">{{ $coolWord['views'] }}</td>
